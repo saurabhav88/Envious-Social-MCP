@@ -15,8 +15,8 @@ Extracted from Postiz source code analysis (2026-03-19).
 - **Media upload:** Direct buffer upload via v1 API (`upload.twitter.com/1.1/media/upload.json`), chunked INIT/APPEND/FINALIZE
 - **Posting:** v2 API (`api.x.com/2/tweets`)
 - **Rate limit:** 300 posts per 3 hours
-- **Text limit:** 200 chars standard, 4000 chars premium
-- **Pricing:** Pay-per-use, $0.01/post (as of 2026-03-19)
+- **Text limit:** 280 chars standard (no free tier — pay-as-you-go only as of 2026)
+- **Pricing:** Pay-as-you-go (no free tier exists anymore)
 - **Gotchas:** Duplicate text within a timeframe is rejected
 
 ## YouTube

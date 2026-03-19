@@ -62,15 +62,17 @@ class XConnector(BaseConnector):
         self,
         file_path: str,
         media_type: Optional[str] = None,
+        _oauth: Optional[OAuth1Session] = None,
     ) -> Dict[str, Any]:
         """Upload media to X using chunked upload (INIT/APPEND/FINALIZE).
 
         Works for images, GIFs, and videos up to ~512MB.
+        Pass _oauth to reuse an existing session (ensures media_id is bound to same credentials).
         """
         if not os.path.isfile(file_path):
             raise FileNotFoundError(f"Media file not found or is a directory: {file_path}")
 
-        oauth = self._get_oauth_session()
+        oauth = _oauth or self._get_oauth_session()
         mime_type = media_type or self._detect_media_type(file_path)
         file_size = os.path.getsize(file_path)
         category = self._media_category(mime_type)
@@ -154,14 +156,26 @@ class XConnector(BaseConnector):
         """
         oauth = self._get_oauth_session()
 
-        # Upload media if provided
+        # Upload media if provided — reuse same OAuth session to keep media_id bound
         media_ids = []
         if media_paths:
             if len(media_paths) > self.MAX_MEDIA:
                 raise ValueError(f"X supports max {self.MAX_MEDIA} media per tweet, got {len(media_paths)}")
             for path in media_paths:
-                result = await self.upload_media(path)
+                result = await self.upload_media(path, _oauth=oauth)
                 media_ids.append(result["media_id"])
+
+        # Validate text length before posting
+        char_count = len(text)
+        if char_count > self.MAX_TEXT_STANDARD:
+            return {
+                "success": False,
+                "platform": "x",
+                "error": f"Tweet is {char_count} chars — exceeds 280 limit (over by {char_count - self.MAX_TEXT_STANDARD}). Trim the text and retry.",
+                "title": "Text too long",
+                "char_count": char_count,
+                "max_chars": self.MAX_TEXT_STANDARD,
+            }
 
         # Build tweet payload
         payload: Dict[str, Any] = {"text": text}
@@ -185,12 +199,20 @@ class XConnector(BaseConnector):
             }
         else:
             error_data = resp.json() if resp.headers.get("content-type", "").startswith("application/json") else {}
+            detail = error_data.get("detail", resp.text)
+            title = error_data.get("title", "Unknown error")
+            # Surface actionable hints for common errors
+            hint = ""
+            if resp.status_code == 403:
+                hint = " (Check: text over 280 chars? App permissions set to Read+Write? Access token regenerated after permission change?)"
+            elif resp.status_code == 429:
+                hint = " (Rate limited — wait and retry)"
             return {
                 "success": False,
                 "platform": "x",
                 "status_code": resp.status_code,
-                "error": error_data.get("detail", resp.text),
-                "title": error_data.get("title", "Unknown error"),
+                "error": f"{detail}{hint}",
+                "title": title,
             }
 
     async def delete_post(self, post_id: str) -> Dict[str, Any]:
