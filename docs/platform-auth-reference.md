@@ -2,6 +2,8 @@
 
 Extracted from Postiz source code analysis (2026-03-19).
 
+**Documentation principle:** this file captures the SHAPE of how each platform works (auth flow, endpoint patterns, structural quirks, gotchas) and POINTERS to authoritative sources for any number that drifts (rate limits, char limits, pricing, posts-per-day caps, aspect ratios). Do not bake specific numbers from official docs here — they go stale and lie to future readers. If you need a current number, follow the link. Today only the X section follows this rule strictly; the YouTube/LinkedIn/Facebook/Instagram/TikTok sections still have baked numbers from the original Postiz extraction and should be cleaned up when those connectors come live.
+
 ## Twitter / X
 
 - **Auth:** OAuth 1.0a (hybrid — v1 for media, v2 for posting)
@@ -14,9 +16,9 @@ Extracted from Postiz source code analysis (2026-03-19).
 - **Callback:** `/integrations/social/x`
 - **Media upload:** Direct buffer upload via v1 API (`upload.twitter.com/1.1/media/upload.json`), chunked INIT/APPEND/FINALIZE — v1.1 media still works even on pay-per-use
 - **Posting:** v2 API (`api.x.com/2/tweets`)
-- **Rate limit (POST /2/tweets, official docs 2026-04):** 100 / 15 min per User Context, 10,000 / 24 hrs per App. The "300 / 3 hrs" figure cited in older Postiz docs is wrong; use the official numbers.
-- **Text limit:** 280 chars standard (no free tier — pay-as-you-go only as of 2026)
-- **Pricing:** Pay-as-you-go (no free tier exists anymore)
+- **Rate limits (POST /2/tweets):** check https://docs.x.com/x-api/fundamentals/rate-limits — varies by tier and changes. Don't quote stale numbers from older docs.
+- **Text limit:** check https://docs.x.com/x-api/posts/manage-tweets — varies by account type (premium can post longer) and changes.
+- **Pricing tiers:** check https://developer.x.com/en/products/x-api or https://console.x.com — pay-as-you-go is current default but tier structure shifts.
 - **Gotchas:** Duplicate text within a timeframe is rejected
 - **CRITICAL — Cold replies blocked:** Per https://docs.x.com/x-api/posts/manage-tweets, "Replies are only permitted if the original post's author has explicitly summoned the replying account by @mentioning them or quoting one of their posts." This is a documented hard rule, not anti-spam. Applies to ALL tiers. Self-replies, replies to tweets that @-mention you, and replies to tweets that quote you all work via API. Cold replies to strangers ALWAYS fail with: "Reply to this conversation is not allowed because you have not been mentioned or otherwise engaged by the author of the post you are replying to." Web UI bypasses (different internal API surface). For cold-reply use cases, use Chrome/Playwright automation, not the API.
 - **v1.1 endpoints locked:** Pay-per-use tier returns code 453 on `statuses/update.json` and most v1.1 (only media upload + oauth still work). Don't try v1.1 as a fallback — it's gone.
