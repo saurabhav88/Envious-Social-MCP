@@ -9,15 +9,18 @@ Extracted from Postiz source code analysis (2026-03-19).
 - **Token expiry:** Never. OAuth 1.0a tokens are permanent unless revoked
 - **Token storage format:** `accessToken:accessSecret` (colon-joined)
 - **Refresh:** Not needed
-- **Developer portal:** https://developer.twitter.com/en/portal/dashboard
+- **Developer portal:** https://console.x.com (the old `developer.twitter.com/en/portal/dashboard` URL redirects here as of 2026; the new console flattened the old Project → App hierarchy)
 - **App type:** MUST select "Native App" — "Web App" causes error 32
 - **Callback:** `/integrations/social/x`
-- **Media upload:** Direct buffer upload via v1 API (`upload.twitter.com/1.1/media/upload.json`), chunked INIT/APPEND/FINALIZE
+- **Media upload:** Direct buffer upload via v1 API (`upload.twitter.com/1.1/media/upload.json`), chunked INIT/APPEND/FINALIZE — v1.1 media still works even on pay-per-use
 - **Posting:** v2 API (`api.x.com/2/tweets`)
-- **Rate limit:** 300 posts per 3 hours
+- **Rate limit (POST /2/tweets, official docs 2026-04):** 100 / 15 min per User Context, 10,000 / 24 hrs per App. The "300 / 3 hrs" figure cited in older Postiz docs is wrong; use the official numbers.
 - **Text limit:** 280 chars standard (no free tier — pay-as-you-go only as of 2026)
 - **Pricing:** Pay-as-you-go (no free tier exists anymore)
 - **Gotchas:** Duplicate text within a timeframe is rejected
+- **CRITICAL — Cold replies blocked:** Per https://docs.x.com/x-api/posts/manage-tweets, "Replies are only permitted if the original post's author has explicitly summoned the replying account by @mentioning them or quoting one of their posts." This is a documented hard rule, not anti-spam. Applies to ALL tiers. Self-replies, replies to tweets that @-mention you, and replies to tweets that quote you all work via API. Cold replies to strangers ALWAYS fail with: "Reply to this conversation is not allowed because you have not been mentioned or otherwise engaged by the author of the post you are replying to." Web UI bypasses (different internal API surface). For cold-reply use cases, use Chrome/Playwright automation, not the API.
+- **v1.1 endpoints locked:** Pay-per-use tier returns code 453 on `statuses/update.json` and most v1.1 (only media upload + oauth still work). Don't try v1.1 as a fallback — it's gone.
+- **No "Project" concept anymore:** The new dev console at console.x.com flattened the old Project → App hierarchy. Apps are standalone under the account. Old docs/SDK code referencing Project assignment is obsolete.
 
 ## YouTube
 
