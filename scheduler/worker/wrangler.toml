@@ -1,0 +1,24 @@
+# Instagram poster for @envious_staging.
+# 9am ET carousel: fires 13:00 + 14:00 UTC. 5pm ET reel: fires 21:00 + 22:00 UTC.
+# Code gates each on the America/New_York hour (9 or 17), so exactly one of each
+# DST twin fires per day across EST/EDT. scheduled() routes hour 17 -> reel.
+name = "envious-social-ig-poster"
+main = "src/index.js"
+compatibility_date = "2026-06-01"
+account_id = "ffd4a184f52880d89e1d6852600e0bea"
+# workers.dev URL stays enabled: it is the only route to /status and manual
+# /run, both gated by the TRIGGER_SECRET bearer (fetch handler fails closed).
+workers_dev = true
+
+[vars]
+IG_USER_ID = "17841415118711583"
+
+[triggers]
+crons = ["0,30 13,14,21,22 * * *"]
+
+[[kv_namespaces]]
+binding = "STATE"
+id = "ccc88caba9d6486792a5cddea664d435"
+
+[observability]
+enabled = true

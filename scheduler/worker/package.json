@@ -1,0 +1,14 @@
+{
+  "name": "envious-social-ig-poster",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.9",
+    "wrangler": "^4.21.0"
+  }
+}

@@ -1,0 +1,64 @@
+# 60-Day Instagram Calendar Preview (@envious_staging)
+
+Regenerated 2026-06-11: property+room-type rotation, council-reviewed copy (session ig-copy-proofread-2026-06-11). Full captions in scheduler/worker/calendar.json. Edit + redeploy to change.
+
+- **2026-06-12** new-milford-ct-estate / music-room [carousel] — Empty rooms make buyers work too hard. We gave this New Milford music room a clear purpose.
+- **2026-06-13** naugatuck-ct-cape / upstairs-bedroom [carousel] — Buyers scroll right past empty spaces. This staged upstairs bedroom makes them stop. The original is on slide two.
+- **2026-06-14** stamford-ct-colonial / great-room [carousel] — Empty room, easy scroll past. Staged room, reason to stop.
+- **2026-06-15** naugatuck-ct-colonial / living-room [carousel] — A staged living room helps buyers mentally move in. The empty version is next.
+- **2026-06-16** new-milford-ct-estate / primary-suite [encore single] — We cannot stop looking at this primary suite from a recent New Milford listing.
+- **2026-06-17** naugatuck-ct-cape / screened-porch [carousel] — Empty room, easy scroll past. Staged room, reason to stop.
+- **2026-06-18** stamford-ct-colonial / family-room [carousel] — Empty room, easy scroll past. Staged room, reason to stop.
+- **2026-06-19** naugatuck-ct-colonial / primary-bedroom [carousel] — The empty primary bedroom was not doing this listing any favors. See the before next.
+- **2026-06-20** new-milford-ct-estate / exterior-play [carousel] — Buyers do not linger over blank space. This backyard play area gives them a place to land.
+- **2026-06-21** naugatuck-ct-cape / game-room-a [encore single] — A favorite from the Naugatuck cape listing: this staged game room earned a second look.
+- **2026-06-22** new-milford-ct-estate / deck [carousel] — The empty deck was not doing this listing any favors. See the before next.
+- **2026-06-23** naugatuck-ct-colonial / dining-area [carousel] — Buyers scroll right past empty spaces. This staged dining area makes them stop. The original is on slide two.
+- **2026-06-24** new-milford-ct-estate / media-room [carousel] — First impressions happen online. This is what buyers see now when they open this New Milford estate listing.
+- **2026-06-25** naugatuck-ct-cape / primary-bedroom [carousel] — A staged primary bedroom helps buyers mentally move in. The empty version is next.
+- **2026-06-26** norwalk-ct-colonial / home-office [encore single] — Sometimes the design just clicks. A standout home office from this Norwalk colonial.
+- **2026-06-27** naugatuck-ct-colonial / foyer [carousel] — Empty room, easy scroll past. Staged room, reason to stop.
+- **2026-06-28** new-milford-ct-estate / teen-bedroom [carousel] — This New Milford teen bedroom needed a stronger first impression. Before is on slide 2.
+- **2026-06-29** naugatuck-ct-cape / dining-area [carousel] — The empty dining area was not doing this listing any favors. See the before next.
+- **2026-06-30** norwalk-ct-colonial / family-room [carousel] — Buyers do not linger over blank space. This family room gives them a place to land.
+- **2026-07-01** naugatuck-ct-colonial / breakfast-nook [encore single] — This Naugatuck breakfast nook is exactly why empty spaces deserve a plan.
+- **2026-07-02** new-milford-ct-estate / primary-suite [carousel] — Empty rooms make buyers work too hard. We gave this New Milford primary suite a clear purpose.
+- **2026-07-03** naugatuck-ct-cape / living-room-wide [carousel] — Buyers scroll right past empty spaces. This staged living room makes them stop. The original is on slide two.
+- **2026-07-04** norwalk-ct-colonial / deck [carousel] — First impressions happen online. This is what buyers see now when they open this Norwalk colonial listing.
+- **2026-07-05** stamford-ct-colonial / primary-bedroom [carousel] — A staged primary bedroom helps buyers mentally move in. The empty version is next.
+- **2026-07-06** new-milford-ct-estate / music-room [encore single] — Buyers fell in love with this music room and we completely understand why.
+- **2026-07-07** naugatuck-ct-cape / upstairs-reading-nook [carousel] — Empty room, easy scroll past. Staged room, reason to stop.
+- **2026-07-08** naugatuck-ct-colonial / kids-bedroom [carousel] — This Naugatuck kids' bedroom needed a stronger first impression. Before is on slide 2.
+- **2026-07-09** stamford-ct-colonial / living-room [carousel] — The empty living room was not doing this listing any favors. See the before next.
+- **2026-07-10** new-milford-ct-estate / exterior-firepit [carousel] — Buyers do not linger over blank space. This firepit patio gives them a place to land.
+- **2026-07-11** norwalk-ct-colonial / nursery [encore single] — Still one of our favorite staged rooms from this Norwalk colonial listing.
+- **2026-07-12** naugatuck-ct-cape / living-room [carousel] — Empty rooms make buyers work too hard. We gave this Naugatuck living room a clear purpose.
+- **2026-07-13** stamford-ct-colonial / dining-room [carousel] — Buyers scroll right past empty spaces. This staged dining room makes them stop. The original is on slide two.
+- **2026-07-14** new-milford-ct-estate / child-bedroom [carousel] — First impressions happen online. This is what buyers see now when they open this New Milford estate listing.
+- **2026-07-15** norwalk-ct-colonial / basement-rec [carousel] — A staged basement rec room helps buyers mentally move in. The empty version is next.
+- **2026-07-16** naugatuck-ct-cape / screened-porch [encore single] — We cannot stop looking at this screened porch from a recent Naugatuck listing.
+- **2026-07-17** naugatuck-ct-colonial / bedroom-15 [carousel] — Empty room, easy scroll past. Staged room, reason to stop.
+- **2026-07-18** new-milford-ct-estate / foyer [carousel] — This New Milford foyer needed a stronger first impression. Before is on slide 2.
+- **2026-07-19** norwalk-ct-colonial / home-office [carousel] — The empty home office was not doing this listing any favors. See the before next.
+- **2026-07-20** naugatuck-ct-cape / first-floor-bedroom [carousel] — Buyers do not linger over blank space. This first-floor bedroom gives them a place to land.
+- **2026-07-21** stamford-ct-colonial / great-room [encore single] — A favorite from the Stamford colonial listing: this staged great room earned a second look.
+- **2026-07-22** new-milford-ct-estate / dining-room [carousel] — Empty rooms make buyers work too hard. We gave this New Milford dining room a clear purpose.
+- **2026-07-23** naugatuck-ct-colonial / bedroom-12 [carousel] — Buyers scroll right past empty spaces. This staged bedroom makes them stop. The original is on slide two.
+- **2026-07-24** naugatuck-ct-cape / game-room-b [carousel] — First impressions happen online. This is what buyers see now when they open this Naugatuck cape listing.
+- **2026-07-25** norwalk-ct-colonial / guest-bedroom [carousel] — A staged guest bedroom helps buyers mentally move in. The empty version is next.
+- **2026-07-26** new-milford-ct-estate / exterior-firepit [encore single] — Sometimes the design just clicks. A standout firepit patio from this New Milford estate.
+- **2026-07-27** norwalk-ct-colonial / living-room [carousel] — This Norwalk living room needed a stronger first impression. Before is on slide 2.
+- **2026-07-28** naugatuck-ct-colonial / breakfast-nook [carousel] — This Naugatuck breakfast nook needed a stronger first impression. Before is on slide 2.
+- **2026-07-29** naugatuck-ct-cape / deck [carousel] — The empty deck was not doing this listing any favors. See the before next.
+- **2026-07-30** new-milford-ct-estate / family-room [carousel] — Buyers do not linger over blank space. This family room gives them a place to land.
+- **2026-07-31** naugatuck-ct-cape / upstairs-reading-nook [encore single] — This Naugatuck reading nook is exactly why empty spaces deserve a plan.
+- **2026-08-01** norwalk-ct-colonial / nursery [carousel] — Empty rooms make buyers work too hard. We gave this Norwalk nursery a clear purpose.
+- **2026-08-02** naugatuck-ct-colonial / family-room [carousel] — Buyers scroll right past empty spaces. This staged family room makes them stop. The original is on slide two.
+- **2026-08-03** new-milford-ct-estate / home-office [carousel] — First impressions happen online. This is what buyers see now when they open this New Milford estate listing.
+- **2026-08-04** naugatuck-ct-cape / game-room-a [carousel] — A staged game room helps buyers mentally move in. The empty version is next.
+- **2026-08-05** new-milford-ct-estate / media-room [encore single] — Buyers fell in love with this media room and we completely understand why.
+- **2026-08-06** norwalk-ct-colonial / dining-area [carousel] — First impressions happen online. This is what buyers see now when they open this Norwalk colonial listing.
+- **2026-08-07** naugatuck-ct-cape / basement-sitting [carousel] — This Naugatuck basement sitting area needed a stronger first impression. Before is on slide 2.
+- **2026-08-08** norwalk-ct-colonial / primary-bedroom [carousel] — Empty rooms make buyers work too hard. We gave this Norwalk primary bedroom a clear purpose.
+- **2026-08-09** new-milford-ct-estate / den [carousel] — Buyers do not linger over blank space. This den gives them a place to land.
+- **2026-08-10** stamford-ct-colonial / family-room [encore single] — Still one of our favorite staged rooms from this Stamford colonial listing.
