@@ -18,6 +18,7 @@ misuse races it). Reel copy Gemini-validated (reel-captions-conversion-2026-06-1
 | Worker | `worker/` — deploy with `npx wrangler deploy` (auth: `get-key launch cloudflare-global-api-key CLOUDFLARE_API_KEY -- bash -c 'export CLOUDFLARE_EMAIL=saurabhav@gmail.com; npx wrangler deploy'`) |
 | Cron | 13:00 + 14:00 UTC (9am ET carousel) + 21:00 + 22:00 UTC (5pm ET reel); code gates each on NY hour (9 or 17), DST-proof via scheduledTime; `scheduled()` routes hour 17 -> reel |
 | Calendar | `worker/calendar.json` (carousel) — `build_calendar.py <start-date>`, 2026-06-12..2026-08-10 live. `worker/reels-calendar.json` (reels) — generated from `envious-reels-poc/ads-captions/reels-schedule.json`, 2026-06-13..2026-07-30 live. Edit + redeploy to change content. |
+| Reel cover | The publisher pins the feed thumbnail to the fully rendered frame at 2 seconds (`thumb_offset=2000`) so Instagram cannot select a black opening frame. |
 | State | Workers KV `envious-social-ig-poster-state` (ccc88caba9d6486792a5cddea664d435): `token` {access_token, updated_at}, `last_posted_date`, `run:<date>`, `last_posted_reel_date`, `reelrun:<date>` |
 | Secrets | wrangler secrets `TRIGGER_SECRET` (GCP `ig-poster-trigger-secret`), `DISCORD_WEBHOOK_URL` (Keychain `enviousstaging.discord-webhook-support`) |
 | IG token | KV is the LIVE copy; the worker auto-refreshes when >14 days old and posts a Discord note. GCP `instagram-access-token-enviousstaging` + Keychain `envious-social/instagram-access-token` go stale after the first refresh; sync from KV when the Discord note appears. |

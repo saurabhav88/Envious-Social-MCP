@@ -421,6 +421,9 @@ export function makeApp(overrides = {}) {
         video_url: entry.video_url,
         caption: entry.caption,
         share_to_feed: "true",
+        // Every campaign video has a stable, fully rendered frame by 2s.
+        // Pinning it prevents Instagram from choosing a black feed thumbnail.
+        thumb_offset: "2000",
       });
     } else if (entry.images.length === 1) {
       containerId = await createContainer(env, budget, token, {
