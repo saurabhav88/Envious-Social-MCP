@@ -338,6 +338,32 @@ describe("Instagram publication safety net", () => {
     expect(harness.count("/user-1/media", "GET")).toBeGreaterThan(2);
   });
 
+  it("2b. pins Reel covers to the fully rendered two-second frame", async () => {
+    const harness = new InstagramHarness();
+    const kv = new MockKV({
+      token: {
+        access_token: "token",
+        updated_at: "2026-07-09T00:00:00Z",
+      },
+    });
+    const app = makeHarnessApp(harness);
+
+    await app.test.executePost(
+      makeEnvironment(kv),
+      "reel",
+      reelEntry.date,
+      budgetFor(app, harness)
+    );
+
+    const [container] = harness.containers.values();
+    expect(container).toMatchObject({
+      media_type: "REELS",
+      video_url: reelEntry.video_url,
+      share_to_feed: "true",
+      thumb_offset: "2000",
+    });
+  });
+
   it("3a. after a publish error with no match, stays publish_attempted and never republishes", async () => {
     const harness = new InstagramHarness({
       publishMode: "throw_without_publish",
