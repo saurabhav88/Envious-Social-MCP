@@ -1,10 +1,14 @@
 /**
  * Instagram poster for @envious_staging.
  *
- * One Cloudflare cron expression fires the DST-twin posting and sweep times:
+ * SCHEDULED EXECUTION IS PAUSED (2026-08-11) — wrangler.toml carries `crons = []`,
+ * so scheduled() is never invoked. See the PAUSED banner in ../README.md.
+ *
+ * When unpaused, one Cloudflare cron expression fires the DST-twin posting and
+ * sweep times:
  *   0,30 13,14,21,22 * * *
  *
- * Active New York routes:
+ * New York routes (when unpaused):
  *   09:00 carousel post
  *   09:30 carousel reconciliation sweep
  *   17:00 reel post
@@ -30,9 +34,11 @@ const MAX_ORDINARY_REQUESTS = 39;
 const MAX_REPORTING_REQUESTS = 4;
 const MAX_TOTAL_REQUESTS = 43;
 
-// Read-only /media-facts endpoint: lets the EnviousMarketing puller read what
-// @envious_staging published without ever holding the Instagram token. The token
-// stays in this worker's KV; the puller calls this endpoint instead of Instagram.
+// Read-only /media-facts endpoint, retained for the PAUSED EnviousMarketing
+// Instagram source (nothing calls it on a schedule today). When resumed, it lets
+// that puller read what @envious_staging published without ever holding the
+// Instagram token: the token stays in this worker's KV and the puller calls this
+// endpoint instead of Instagram.
 const MEDIA_FACTS_PAGE_CAP = 8;
 const MEDIA_FACTS_DEFAULT_DAYS = 4;
 const MEDIA_FACTS_MAX_DAYS = 30;
