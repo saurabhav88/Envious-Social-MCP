@@ -1,7 +1,30 @@
 # Instagram poster for @envious_staging.
-# 9am ET carousel: fires 13:00 + 14:00 UTC. 5pm ET reel: fires 21:00 + 22:00 UTC.
-# Code gates each on the America/New_York hour (9 or 17), so exactly one of each
-# DST twin fires per day across EST/EDT. scheduled() routes hour 17 -> reel.
+#
+# PAUSED 2026-08-11: both calendars ran out (carousel through 2026-08-10, reels
+# through 2026-07-30) and there is no new portfolio work to post, so scheduled
+# publishing is off. The Worker stays DEPLOYED: /status and /run remain
+# reachable. /media-facts remains deployed but is expected to return 502 after
+# the IG token lapses; EnviousMarketing keeps its service binding configured but
+# its `instagram` source is PAUSED in the same change, so nothing calls it on a
+# schedule. Only the cron schedule is disabled here.
+#
+# To resume SAFELY, in this ORDER (full runbook: ../README.md PAUSED banner):
+#   1. Refill {calendar,reels-calendar}.json and deploy ONCE with crons = [].
+#   2. Re-auth the IG token if it lapsed, and WRITE it into STATE KV (`token`,
+#      with a fresh updated_at) — KV is the live copy the code reads.
+#   3. Verify /status and that /media-facts returns 200.
+#   4. Re-enable and deploy the Instagram source in EnviousMarketing.
+#   5. Only THEN restore the crons line below and deploy again.
+# Restoring crons before step 2 lets a live schedule fire against a dead token.
+# The token auto-refreshes only after a post is CONFIRMED PUBLISHED (including
+# via the reconciliation path, not just a fresh publish), so it stops renewing
+# while paused (see .claude/knowledge/instagram-marketing.md in EnviousStaging).
+#
+# Original schedule (restore verbatim on resume):
+#   crons = ["0,30 13,14,21,22 * * *"]
+#   9am ET carousel: fires 13:00 + 14:00 UTC. 5pm ET reel: fires 21:00 + 22:00 UTC.
+#   Code gates each on the America/New_York hour (9 or 17), so exactly one of each
+#   DST twin fires per day across EST/EDT. scheduled() routes hour 17 -> reel.
 name = "envious-social-ig-poster"
 main = "src/index.js"
 compatibility_date = "2026-06-01"
@@ -14,7 +37,12 @@ workers_dev = true
 IG_USER_ID = "17841415118711583"
 
 [triggers]
-crons = ["0,30 13,14,21,22 * * *"]
+# MUST stay an explicit empty array to actually clear the schedule. Deleting or
+# commenting out this key does NOT remove the deployed Cron Triggers: Cloudflare
+# treats an absent `crons` as "leave existing triggers unchanged", so the old
+# schedule would keep firing while appearing disabled here.
+# https://developers.cloudflare.com/workers/configuration/cron-triggers
+crons = []
 
 [[kv_namespaces]]
 binding = "STATE"
